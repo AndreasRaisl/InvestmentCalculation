@@ -1,3 +1,4 @@
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 const myCalculator = require('calc-immo-investment');
 
 
@@ -83,3 +84,36 @@ function showComprisedResult(result) {
 
 // }
 
+
+},{"calc-immo-investment":2}],2:[function(require,module,exports){
+exports.calcImmoInvestment = function (inputPrice, inputCapital, inputZins, inputTilgung)
+{	
+	let restSchuld = inputPrice - inputCapital;
+	console.log(restSchuld);
+
+	let counter = 0;
+	let interestTotal = 0;	
+	let details = {};
+	details.zinsen = [];
+	details.restSchuld = [];
+	details.reineJahresTilgung = [];
+
+	while(restSchuld > 0)
+	{
+		zinsen = restSchuld / 100 * inputZins;
+		details.zinsen.push(zinsen);
+		interestTotal += zinsen;
+		reineJahresTilgung = inputTilgung * 12 - zinsen;
+		details.reineJahresTilgung.push(reineJahresTilgung);
+		restSchuld = restSchuld - reineJahresTilgung;	
+		details.restSchuld.push(restSchuld);	
+		counter++;		
+  }
+
+  details.totalYears = counter;
+  details.restSchuldEnd = restSchuld;
+  details.interestTotal = interestTotal;  
+  return details;		
+}
+
+},{}]},{},[1]);
