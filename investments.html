@@ -4,26 +4,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-
     <title>Investments Calculation</title>
-
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    
+    <link href="css/bootstrap.min.css" rel="stylesheet">    
     <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet">
-    
+    <link href="css/style.css" rel="stylesheet">    
   </head>
 
   <body>
-
     <div class="container">
-      <div class="header clearfix">
-        <nav>
-          
-        </nav>
+      <div class="header clearfix">       
         <h3 class="text-muted">Investments</h3>
       </div>
 
@@ -48,6 +38,11 @@
           </div>
           <button type="submit" id="submitButton" class="btn btn-primary" > Berechnen </button>
         </form>
+        <br> <br> <br>
+
+        <div class="limitWarning">
+          Bitte beachten: Bei Kreditmodellen mit einer Rückzahlung über mehr als ca. 150 Jahre geht die Rechenkapazität des Browsers in die Knie (Out of Memory Exception). Das tritt in etwa ein bei einer Kaufsumme von 150000, Eigenkapital von 20000, 5% Zinsen und 1000 monatlicher Tilgung. Für solche Berechnungen müsste eine Backend Lösung ausserhalb des Browsers implementiert werden.  
+        </div>
         <div id="response">        
         </div>
       </div>
@@ -78,7 +73,7 @@
       
 
       <footer class="footer">
-        <p>&copy; 2016 Company, Inc.</p>
+        <p>&copy; 2019 Andreas Raisl </p>
       </footer>
 
     </div> <!-- /container -->
